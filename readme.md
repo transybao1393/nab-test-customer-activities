@@ -1,14 +1,14 @@
 ## Request Optimize/Analyze
-> Compression
-> CORS
+1. Compression
+2. CORS
 
 ## Logger
-> Morgan
+1. Morgan
 
 ## Testing
-> Mocha
-> Chai
-> Chai-http
+1. Mocha
+2. Chai
+3. Chai-http
 
 ## Database
-> sqlite3
+1. sqlite3
