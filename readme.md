@@ -10,5 +10,8 @@
 2. Chai
 3. Chai-http
 
-## Database
-1. sqlite3
+## Others
+1. Husky
+2. Moment
+3. Lodash
+4. Underscore
