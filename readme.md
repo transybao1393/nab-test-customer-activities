@@ -15,3 +15,9 @@
 2. Moment
 3. Lodash
 4. Underscore
+
+## Validate data
+1. Validator
+
+## Database
+1. Mongoose
