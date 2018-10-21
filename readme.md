@@ -24,3 +24,9 @@
 
 ## Memcached
 1. memoizee
+
+## Encrypt data
+1. bcryptjs
+
+## Request Data Handle
+1. body-parser
