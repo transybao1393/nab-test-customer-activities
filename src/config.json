@@ -1,3 +1,7 @@
 {
-    "port": 8001
+    "port": 8001,
+    "twilio": {
+        "ACCOUNT_SID": "AC89626719f5b573d101a1d0072f08c2f9",
+        "AUTH_TOKEN": "bcc004aab179f6331fec33eba25de081" 
+    }
 }
