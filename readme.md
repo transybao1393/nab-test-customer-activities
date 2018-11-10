@@ -15,6 +15,7 @@
 2. Moment
 3. Lodash
 4. Underscore
+5. Mongoose plugin
 
 ## Validate data
 1. Validator
@@ -25,7 +26,7 @@
 ## Memcached
 1. memoizee
 
-## Encrypt data
+## Encrypt data / password
 1. bcryptjs
 
 ## Request Data Handle
@@ -33,3 +34,6 @@
 
 ## SMS
 1. Twilio
+
+## Security
+1. helmet
