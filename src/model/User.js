@@ -12,9 +12,8 @@ let UserSchema = new Schema({
         unique: true,
     },
     uPassword: { type: String, select: false, required: false},
-    uCode: {type: Number},
-    uVerified: {type: Boolean, default: false},
-    uCodeExpire: {type: Date, default: moment(new Date()).add(30, 'm').utcOffset("+0700")},
+    //- foreign key
+    // fans: [{ type: Schema.Types.ObjectId, ref: 'Person' }]
 
 })
 
