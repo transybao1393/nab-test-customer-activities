@@ -1,10 +1,12 @@
 'use strict'
 import mongoose from 'mongoose';
+import config from '../config.json';
 
 class Connection {
     async connect()
     {
-        let connectionString = 'mongodb://localhost:27017/thuexedap';
+        // let connectionString = 'mongodb://localhost:27017/qrCode';
+        let connectionString = 'mongodb://' + config.MONGO_HOST + '/' + config.MONGO_DOCUMENT;
         let options = {
             useNewUrlParser: true,
             autoIndex: true,

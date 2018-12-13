@@ -3,5 +3,8 @@
     "twilio": {
         "ACCOUNT_SID": "AC89626719f5b573d101a1d0072f08c2f9",
         "AUTH_TOKEN": "bcc004aab179f6331fec33eba25de081" 
-    }
+    },
+    "MONGO_HOST": "localhost:27017",
+    "MONGO_DOCUMENT": "qrCode",
+    "REDIS_HOST": "127.0.0.1"
 }

@@ -23,7 +23,7 @@
 ## Database
 1. Mongoose
 
-## Memcached
+## Mcached
 1. memoizee
 
 ## Encrypt data / password
@@ -35,10 +35,14 @@
 ## SMS
 1. Twilio
 
+## Queue services
+1. Kue
+
+## Email services
+1. Nodemailer
+
 ## Security
 1. helmet
-
-## Utilities
 
 ## JWT
 1. jsonwebtoken
