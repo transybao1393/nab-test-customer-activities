@@ -7,6 +7,9 @@ import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import Connection from './db/connect';
 import productRouter from './router/product';
+import {
+    trackingActivities
+} from './services/userInfo';
 Connection.connectAndGenerateMockData();
 const app = express();
 
@@ -25,6 +28,12 @@ app.use(CORS())
 
 //- using helmet
 app.use(helmet())
+
+//- general middleware to handle user device, browser and ip
+app.use(function (req, res, next) {
+    trackingActivities(req);
+    next();
+})
 
 //- product router
 app.use('/product', productRouter);

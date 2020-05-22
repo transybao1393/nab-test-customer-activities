@@ -4,6 +4,7 @@ import {
 import {
     ProductModel
 } from '../model/index';
+import status from 'statuses';
 
 class ProductController 
 {
@@ -27,7 +28,6 @@ class ProductController
     }
 
     async sortByPrice(req, res) {
-        console.log('ở hàm sort');
         let orderType = req.params.orderType; //- asc, desc, by date, alphabet
         let conditions;
         try {
@@ -43,6 +43,7 @@ class ProductController
             let sortedProductList = await ProductModel.find().sort(conditions);
             res.status(200).json({
                 error: false,
+                message: "",
                 data: sortedProductList || []
             });
         } catch (error) {
@@ -65,20 +66,21 @@ class ProductController
             });
             res.status(200).json({
                 error: false,
+                message: status.message[200],
                 data: productList || []
             });
         } catch (error) {
             //- throw error
             console.error(error);
-            res.status(500).json({
+            res.status(error.code).json({
                 error: true,
+                message: error.message,
                 data: error
             })
         }
     }
 
     async searchAny(req, res) {
-        console.log('here...', req.query);
         //- TODO: search branch with values seperately
 
         //- search like any name, color, branch

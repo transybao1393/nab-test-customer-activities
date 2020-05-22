@@ -1,12 +1,16 @@
 import mongoose from 'mongoose';
 
 let Schema = mongoose.Schema;
-let CustomerActivitiesSchema = new Schema({
-    
-   caBrowser: {type: String, required: true},
-   caRemoteAddress: {type:String},
-   caType: {type: String, enum: ['c', 'r', 'u', 'd']},
 
+let CustomerActivitiesSchema = new Schema({
+    caUserAgent: {type: String, required: true},
+    caBrowser: {type: Schema.Types.Mixed, default: null},
+    caOS: {type: Schema.Types.Mixed, default: null},
+    caRemoteAddress: {type:String},
+    caMethod: {type: String, enum: ['GET', 'POST', 'PUT', 'OPTIONS']},
+    caOriginalUrl: {type: String},
+    caParams: {type: Schema.Types.Mixed, default: null},
+    caQuery: {type: Schema.Types.Mixed, default: null},
 }, { 
     timestamps: { 
         createdAt: 'created_at',
