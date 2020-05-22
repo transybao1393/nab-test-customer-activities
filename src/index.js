@@ -6,7 +6,8 @@ import config from './config.json';
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import Connection from './db/connect';
-Connection.connect();
+import productRouter from './router/product';
+Connection.connectAndGenerateMockData();
 const app = express();
 
 //- using morgan
@@ -24,6 +25,9 @@ app.use(CORS())
 
 //- using helmet
 app.use(helmet())
+
+//- product router
+app.use('/product', productRouter);
 
 //- open a server
 app.listen(process.env.PORT || config.port, () => {
