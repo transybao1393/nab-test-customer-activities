@@ -12,7 +12,7 @@ class Connection {
             useNewUrlParser: true,
             autoIndex: true,
             autoReconnect: false,
-            useUnifiedTopology: true,
+            useUnifiedTopology: false,
             useCreateIndex: true
         };
 
@@ -37,7 +37,7 @@ class Connection {
             useNewUrlParser: true,
             autoIndex: true,
             autoReconnect: false,
-            useUnifiedTopology: true,
+            useUnifiedTopology: false,
             useCreateIndex: true
         };
 
