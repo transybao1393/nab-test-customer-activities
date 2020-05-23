@@ -10,7 +10,7 @@ let lastModifiedPlugin = (schema, options) => {
     if (options && options.index) {
         schema.path('lastModified').index(options.index);
     }
-}
+};
 
 let updatedAtPlugin = (schema, options) => {
     schema.add({ updatedAt: Date });
@@ -18,7 +18,7 @@ let updatedAtPlugin = (schema, options) => {
         this.updatedAt = new Date();
         next();
     });
-}
+};
 
 let createdAtPlugin = (schema, options) => {
     schema.add({ createdAt: Date });
@@ -26,7 +26,7 @@ let createdAtPlugin = (schema, options) => {
         this.createdAt = new Date();
         next();
     });
-}
+};
 
 export {
     lastModifiedPlugin,

@@ -4,4 +4,4 @@ import CustomerActivitiesModel from './CustomerActivities';
 export {
     ProductModel,
     CustomerActivitiesModel
-}
+};

@@ -46,7 +46,3 @@ export const stream = {
         logger.info(message);
     }
 };
-
-//- how to use 
-// logger.info(message);
-// logger.error(message);

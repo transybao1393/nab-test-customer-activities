@@ -1,4 +1,3 @@
-import moment from 'moment';
 import nodemailer from 'nodemailer';
 
 const sendEmail = (data, done) => {
@@ -19,7 +18,7 @@ const sendEmail = (data, done) => {
         subject: 'Bao Bao system',
         text: 'Welcome to our service!',
         html: '<p>This is your random password <br> ' + data.eRandomPassword +' </p>'
-    }
+    };
     transporter.sendMail(mainOptions, function(err, info){
         if (err) {
             console.log(err);
@@ -31,8 +30,8 @@ const sendEmail = (data, done) => {
     });
     done();
 
-}
+};
 
 export {
     sendEmail
-}
+};

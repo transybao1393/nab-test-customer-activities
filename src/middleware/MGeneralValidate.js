@@ -1,10 +1,8 @@
 
 import status from 'statuses';
 
-class MGeneralValidate
-{
-    async checkIfNumeric(req, res, next)
-    {
+class MGeneralValidate {
+    async checkIfNumeric(req, res, next) {
         let priceFrom = req.query.priceFrom;
         let priceTo = req.query.priceTo;
         let numericAndPositive = /^\d+$/;
@@ -26,7 +24,7 @@ class MGeneralValidate
                 data: error
             });
         }
-        
+
     }
 
 }

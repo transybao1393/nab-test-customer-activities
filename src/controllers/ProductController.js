@@ -6,8 +6,7 @@ import {
 } from '../model/index';
 import status from 'statuses';
 
-class ProductController 
-{
+class ProductController {
 
     async showAllProduct(req, res){
         try {
@@ -25,7 +24,7 @@ class ProductController
                 error: true,
                 message: error.message,
                 data: error
-            })
+            });
         }
     }
 
@@ -55,7 +54,7 @@ class ProductController
                 error: true,
                 message: error.message,
                 data: error
-            })
+            });
         }
     }
 
@@ -79,7 +78,7 @@ class ProductController
                 error: true,
                 message: error.message,
                 data: error
-            })
+            });
         }
     }
 
@@ -111,7 +110,7 @@ class ProductController
                 error: true,
                 message: error.message,
                 data: error
-            })
+            });
         }
     }
 }

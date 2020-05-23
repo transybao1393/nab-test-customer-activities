@@ -1,4 +1,3 @@
-//During the test the env variable is set to test
 process.env.NODE_ENV = 'test';
 import "babel-polyfill";
 import app from '../index';
@@ -7,7 +6,7 @@ let request = supertest(app);
 import status from 'statuses';
 
 describe('Product search test', () => {
-    it('Show all product', async done => {
+    it('Show all product', async (done) => {
         // Sends GET Request to /test endpoint
         let expectedResponse = [
             {
@@ -71,20 +70,20 @@ describe('Product search test', () => {
                 "updated_at": "2020-05-23T16:57:27.253Z"
             }
         ];
-        
-        const response = await request.get('/product')
+
+        const response = await request.get('/product');
         expect(response.status).toBe(200);
         expect(response.body.error).toBeFalsy();
         expect(response.body.message).toEqual(status.message[200]);
         expect(response.body.data).toEqual(expectedResponse);
-        done()
+        done();
     });
 
-    it('Wrong URI', async done => {
+    it('Wrong URI', async (done) => {
         //- incase of wrong uri
-        const response = await request.get('/product1')
+        const response = await request.get('/product1');
         expect(response.status).toBe(404);
-        done()
+        done();
     });
 
 

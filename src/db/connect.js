@@ -1,13 +1,11 @@
-'use strict'
+'use strict';
 import mongoose from 'mongoose';
 import config from '../config.json';
 import ProductModel from '../model/Product';
-import CustomActivitiesModel from '../model/CustomerActivities';
 import {size} from 'lodash';
 
 class Connection {
-    connect()
-    {
+    connect() {
         // let connectionString = 'mongodb://localhost:27017/qrCode';
         let connectionString = 'mongodb://' + config.MONGO_HOST + '/' + config.MONGO_DOCUMENT;
         let options = {
@@ -16,11 +14,11 @@ class Connection {
             autoReconnect: false,
             useUnifiedTopology: true,
             useCreateIndex: true
-        }
+        };
 
         //- connect to database
         mongoose.connect(connectionString, options);
-        
+
         //- error catch event
         mongoose.connection.on('connected', () => {
             console.info('Database connected');
@@ -33,8 +31,7 @@ class Connection {
         });
     }
 
-    connectAndGenerateMockData()
-    {
+    connectAndGenerateMockData() {
         let connectionString = config.MONGO_CONNECTION_STRING;
         let options = {
             useNewUrlParser: true,
@@ -42,18 +39,16 @@ class Connection {
             autoReconnect: false,
             useUnifiedTopology: true,
             useCreateIndex: true
-        }
+        };
 
         //- connect to database
         mongoose.connect(connectionString, options);
-        
+
         //- error catch event
         mongoose.connection.on('connected', () => {
             console.info('Database connected');
 
-            //- check if it has data 
-            //- TODO: we can move to background queue
-            //- it will request every time even when the query costs very little performance
+            //- check if it has data
             ProductModel.find().limit(1).exec(function(err, product) {
                 console.log('product size...', size(product));
                 if(!err && size(product) == 0) {
@@ -98,7 +93,7 @@ class Connection {
                 }
             });
 
-            
+
         });
         mongoose.connection.on('error', () => {
             console.info('Database error !!!');

@@ -6,9 +6,9 @@ import {
 //- tracking activities
 let trackingActivities = async (req) => {
     //- should bring to background queue
-    let ip = (req.headers['x-forwarded-for'] || '').split(',').pop().trim() || 
-    req.connection.remoteAddress || 
-    req.socket.remoteAddress || 
+    let ip = (req.headers['x-forwarded-for'] || '').split(',').pop().trim() ||
+    req.connection.remoteAddress ||
+    req.socket.remoteAddress ||
     req.connection.socket.remoteAddress;
 
     var userAgent = parser(req.headers['user-agent']);
@@ -24,8 +24,8 @@ let trackingActivities = async (req) => {
         caParams: req.params,
         caQuery: req.query
     });
-}
+};
 
 export {
     trackingActivities
-}
+};

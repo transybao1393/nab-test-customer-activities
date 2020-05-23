@@ -11,12 +11,12 @@ let CustomerActivitiesSchema = new Schema({
     caOriginalUrl: {type: String},
     caParams: {type: Schema.Types.Mixed, default: null},
     caQuery: {type: Schema.Types.Mixed, default: null},
-}, { 
-    timestamps: { 
+}, {
+    timestamps: {
         createdAt: 'created_at',
         updatedAt: 'updated_at'
-    } 
-})
+    }
+});
 
-const CustomerActivities = mongoose.model('CustomerActivities', CustomerActivitiesSchema)
+const CustomerActivities = mongoose.model('CustomerActivities', CustomerActivitiesSchema);
 export default CustomerActivities;

@@ -26,7 +26,7 @@ let emailQueue = async (name, email, randomPassword) => {
         if (err) throw err;
         console.log(`Job ${emailJob.id} saved to the queue.`);
     });
-    
+
     //- on job failed
     emailJob.on('complete', function(result){
         console.log('Job completed with data ', result);
@@ -39,12 +39,12 @@ let emailQueue = async (name, email, randomPassword) => {
     });
 
     //- start job with process
-    await queue.process('sendEmail', function(job, done) { 
+    await queue.process('sendEmail', function(job, done) {
         sendEmail(job.data, done);
     });
-    
-}
+
+};
 
 export {
     emailQueue
-}
+};
