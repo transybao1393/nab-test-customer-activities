@@ -9,11 +9,6 @@ let ProductSchema = new Schema({
         required: true,
         index: true //- should not be place index here
     },
-    pCode: {
-        type: String, 
-        required: true,
-        index: true
-    },
     pPrice: {
         type: Number, 
         required: true

@@ -1,10 +1,7 @@
 {
     "port": 8001,
-    "twilio": {
-        "ACCOUNT_SID": "AC89626719f5b573d101a1d0072f08c2f9",
-        "AUTH_TOKEN": "bcc004aab179f6331fec33eba25de081" 
-    },
     "MONGO_HOST": "transybao:transybao93@ds215229.mlab.com:15229",
     "MONGO_DOCUMENT": "nab-test",
+    "MONGO_CONNECTION_STRING": "mongodb://transybao:transybao93@ds215229.mlab.com:15229/nab-test",
     "REDIS_HOST": "127.0.0.1"
 }

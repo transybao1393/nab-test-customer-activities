@@ -24,20 +24,24 @@ describe('Product Price Range Test', () => {
         // Sends GET Request to /test endpoint
         let expectedResponse = [
             {
-                "_id": "5ec65c8877b20a2113d64aad",
+                "_id": "5ec955f7d7089f5fa0028021",
                 "pName": "Skirt",
                 "pPrice": 123,
-                "pBranch": "Louis Vuition",
+                "pBranch": "Louis Vution",
                 "pColor": "White",
-                "__v": 0
+                "__v": 0,
+                "created_at": "2020-05-23T16:57:27.248Z",
+                "updated_at": "2020-05-23T16:57:27.248Z"
             },
             {
-                "_id": "5ec65cc00fa940212c11b37c",
+                "_id": "5ec955f7d7089f5fa0028022",
                 "pName": "T-shirt",
                 "pPrice": 123,
-                "pBranch": "Louis Vuition",
+                "pBranch": "Louis Vution",
                 "pColor": "White",
-                "__v": 0
+                "__v": 0,
+                "created_at": "2020-05-23T16:57:27.251Z",
+                "updated_at": "2020-05-23T16:57:27.251Z"
             }
         ];
         const response = await request.get('/product/range?priceFrom=100&priceTo=1000')
