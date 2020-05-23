@@ -6,7 +6,12 @@
   "scripts": {
     "start": "babel-node src/index.js --presets es2015,stage-2",
     "dev": "nodemon -w src --exec \"babel-node src/index.js --presets es2015,stage-2\"",
-    "test": "mocha --timeout 10000"
+    "dev2": "nodemon --exec babel-node src/index.js",
+    "test": "babel-node src/test/*.test.js && jest",
+    "test2": "jest",
+    "reinstall": "rm -rf node_modules package-lock.json && npm cache clean --force && npm install && npm run plugin-setup && npm run babel7",
+    "plugin-setup": "npm install @babel/plugin-transform-arrow-functions @babel/plugin-transform-block-scoping @babel/preset-stage-2 --save-dev",
+    "babel7": "npm install @babel/cli @babel/core @babel/node @babel/preset-env @babel/plugin-transform-modules-commonjs --save-dev"
   },
   "keywords": [],
   "author": "",
@@ -37,20 +42,26 @@
     "validator": "^10.8.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-plugin-check-es2015-constants": "^6.22.0",
-    "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
-    "babel-plugin-transform-es2015-block-scoping": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "chai": "^4.1.2",
-    "chai-http": "^4.0.0",
-    "detect-browser": "^5.1.0",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-transform-arrow-functions": "^7.8.3",
+    "@babel/plugin-transform-block-scoping": "^7.8.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-stage-2": "^7.8.3",
     "faker": "^4.1.0",
-    "mocha": "^5.2.0",
-    "nodemon": "^1.17.5",
+    "got": "^11.1.4",
+    "install": "^0.13.0",
+    "jest": "^26.0.1",
+    "nodemon": "^1.19.4",
+    "npm": "^6.14.5",
+    "regenerator-runtime": "^0.13.5",
     "statuses": "^2.0.0",
     "ua-parser-js": "^0.7.21"
+  },
+  "resolutions": {
+    "babel-core": "7.0.0-bridge.0",
+    "chokidar": "^3.4.0"
   }
 }
