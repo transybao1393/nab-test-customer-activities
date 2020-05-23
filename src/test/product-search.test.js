@@ -4,8 +4,6 @@ import app from '../index';
 import supertest from 'supertest';
 let request = supertest(app);
 
-//Require the dev-dependencies
-
 describe('Product Search Test', () => {
 
     it('Wrong URI', async (done) => {
@@ -14,6 +12,4 @@ describe('Product Search Test', () => {
         expect(response.status).toBe(404);
         done();
     });
-
-
 });

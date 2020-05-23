@@ -3,5 +3,6 @@ module.exports = {
     testEnvironment: 'node',
     testTimeout: 30000,
     notify: true,
-    notifyMode: 'always'
+    notifyMode: 'always',
+    timers: 'fake'
 };

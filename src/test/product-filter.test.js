@@ -5,8 +5,6 @@ import supertest from 'supertest';
 let request = supertest(app);
 import status from 'statuses';
 
-//Require the dev-dependencies
-
 describe('Product Price Range Test', () => {
 
     it('If price between 1 and 100', async (done) => {
