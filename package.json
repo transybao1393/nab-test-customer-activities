@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "babel-node src/index.js",
-    "dev": "nodemon --exec babel-node src/server.js",
-    "test": "eslint . --fix && jest",
+    "dev": "NODE_ENV=development && nodemon --exec babel-node src/server.js",
+    "test": "NODE_ENV=test && eslint . --fix && jest",
     "reinstall": "rm -rf node_modules package-lock.json && npm cache clean --force && npm install && npm run plugin-setup && npm run babel7",
     "plugin-setup": "npm install @babel/plugin-transform-arrow-functions @babel/plugin-transform-block-scoping @babel/preset-stage-2 --save-dev",
     "babel7": "npm install @babel/cli @babel/core @babel/node @babel/preset-env @babel/plugin-transform-modules-commonjs babel-polyfill --save-dev"
