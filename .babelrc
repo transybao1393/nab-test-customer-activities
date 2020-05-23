@@ -1,7 +1,6 @@
 {
     "plugins": [
         "@babel/plugin-transform-arrow-functions",
-        // "check-es2015-constants",
         "@babel/plugin-transform-block-scoping"
     ],
     "presets": [

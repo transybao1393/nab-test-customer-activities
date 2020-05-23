@@ -14,6 +14,7 @@ class ProductController
             let productList = await ProductModel.find();
             res.status(200).json({
                 error: false,
+                message: status.message[200],
                 data: productList || []
             });
             //- TODO: optimize error handling and response message, duplicate too much
@@ -22,6 +23,7 @@ class ProductController
             console.error(error);
             res.status(500).json({
                 error: true,
+                message: error.message,
                 data: error
             })
         }
@@ -43,7 +45,7 @@ class ProductController
             let sortedProductList = await ProductModel.find().sort(conditions);
             res.status(200).json({
                 error: false,
-                message: "",
+                message: status.message[200],
                 data: sortedProductList || []
             });
         } catch (error) {
@@ -51,6 +53,7 @@ class ProductController
             console.error(error);
             res.status(500).json({
                 error: true,
+                message: error.message,
                 data: error
             })
         }
@@ -98,6 +101,7 @@ class ProductController
                 });
             res.status(200).json({
                 error: false,
+                message: status.message[200],
                 data: productList || []
             });
         } catch (error) {
@@ -105,6 +109,7 @@ class ProductController
             console.error(error);
             res.status(500).json({
                 error: true,
+                message: error.message,
                 data: error
             })
         }

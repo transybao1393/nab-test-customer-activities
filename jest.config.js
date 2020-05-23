@@ -1,4 +1,7 @@
 module.exports = {
     verbose: true,
-    testEnvironment: 'node'
+    testEnvironment: 'node',
+    testTimeout: 30000,
+    notify: true,
+    notifyMode: 'always'
 };

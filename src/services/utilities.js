@@ -1,9 +1,10 @@
-import _ from 'lodash';
+import {chain} from 'lodash';
 import Chance from 'chance';
 import moment from 'moment';
+
 //- example
 const groupBy = async (collection, t) => {
-    return _.chain(collection).groupBy(t); 
+    return chain(collection).groupBy(t); 
 }
 
 const randomPass = async () => {

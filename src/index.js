@@ -2,7 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import compression from 'compression';
 import CORS from 'cors';
-import config from './config.json';
+
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import Connection from './db/connect';
@@ -39,6 +39,8 @@ app.use(function (req, res, next) {
 app.use('/product', productRouter);
 
 //- open a server
-app.listen(process.env.PORT || config.port, () => {
-    console.log('Server start at port: ' + (process.env.PORT || config.port));
-})
+// app.listen(process.env.PORT || config.port, () => {
+//     console.log('Server start at port: ' + (process.env.PORT || config.port));
+// })
+
+export default app;
