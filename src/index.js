@@ -10,7 +10,13 @@ import productRouter from './router/product';
 import {
     trackingActivities
 } from './services/userInfo';
-Connection.connectAndGenerateMockData();
+// Connection.connectAndGenerateMockData();
+
+try {
+    Connection.connectAndGenerateMockData();
+} catch (error) {
+    console.log('mongoose error', error);
+}
 const app = express();
 
 //- using morgan

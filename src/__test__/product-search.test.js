@@ -1,27 +1,42 @@
 process.env.NODE_ENV = 'test';
 import "babel-polyfill";
+
+// import app from '../index';
+// import supertest from 'supertest';
+
+// const app = require('../index');
 import app from '../index';
-import supertest from 'supertest';
-let request = supertest(app);
+const request = require('supertest');
+
+
 import mongoose from 'mongoose';
 
 describe('Product Search Test', () => {
 
-    it('Wrong URI', async (done) => {
+    describe('Sample Test', () => {
+        it('should test that true === true', () => {
+          expect(true).toBe(true);
+        });
+    });
+
+    it('Wrong URI', async () => {
         //- incase of wrong uri
-        const response = await request.get('/product/any1');
+        const response = await request(app).get('/product/any1');
         expect(response.status).toBe(404);
         mongoose.connection.close();
-        done();
     });
 });
 
 beforeAll(done => {
-    done();
+    return done();
+});
+
+afterEach(function(done) {
+    mongoose.disconnect();
+    return done();
 });
 
 afterAll(done => {
     // Closing the DB connection allows Jest to exit successfully.
-    mongoose.connection.close();
-    done();
+    return done();
 });
