@@ -11,8 +11,9 @@ RUN echo "NPM version" && npm -v
 RUN mkdir /api
 WORKDIR /api
 
-RUN echo "Copying api..."
 COPY . /api
+
+ENV MONGODB_URI=mongodb://mongo/nab-test
 
 #Running the app
 EXPOSE 8001
