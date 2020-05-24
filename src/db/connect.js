@@ -4,7 +4,8 @@ import config from '../config.json';
 import ProductModel from '../model/Product';
 import {size} from 'lodash';
 
-let connectionString = config.MONGO_CONNECTION_STRING;
+// let connectionString = config.MONGO_CONNECTION_STRING || process.env.MONGODB_URI;
+let connectionString = "mongodb://mongo/nab-test";
 let options = {
     useNewUrlParser: true,
     autoIndex: true,
