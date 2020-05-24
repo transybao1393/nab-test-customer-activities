@@ -4,5 +4,9 @@ module.exports = {
     testTimeout: 30000,
     notify: true,
     notifyMode: 'always',
-    timers: 'fake'
+    timers: 'fake',
+    maxConcurrency: 4,
+    coveragePathIgnorePatterns: [
+        "/node_modules/"
+    ]
 };

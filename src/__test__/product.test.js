@@ -4,9 +4,10 @@ import app from '../index';
 import supertest from 'supertest';
 let request = supertest(app);
 import status from 'statuses';
+import mongoose from 'mongoose';
 
 describe('Product search test', () => {
-    it('Show all product', async (done) => {
+    it('Show all product', async () => {
         // Sends GET Request to /test endpoint
         let expectedResponse = [
             {
@@ -76,14 +77,14 @@ describe('Product search test', () => {
         expect(response.body.error).toBeFalsy();
         expect(response.body.message).toEqual(status.message[200]);
         expect(response.body.data).toEqual(expectedResponse);
-        done();
+        // done();
     });
 
-    it('Wrong URI', async (done) => {
+    it('Wrong URI', async () => {
         //- incase of wrong uri
         const response = await request.get('/product1');
         expect(response.status).toBe(404);
-        done();
+        // done();
     });
 
 

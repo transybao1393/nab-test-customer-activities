@@ -4,20 +4,21 @@ import app from '../index';
 import supertest from 'supertest';
 let request = supertest(app);
 import status from 'statuses';
+import mongoose from 'mongoose';
 
 describe('Product Price Range Test', () => {
 
-    it('If price between 1 and 100', async (done) => {
+    it('If price between 1 and 100', async () => {
         // Sends GET Request to /test endpoint
         const response = await request.get('/product/range?priceFrom=1&priceTo=100');
         expect(response.status).toBe(200);
         expect(response.body.error).toBeFalsy();
         expect(response.body.message).toEqual(status.message[200]);
         expect(response.body.data).toEqual([]);
-        done();
+        // done();
     });
 
-    it('If price between 100 and 1000', async (done) => {
+    it('If price between 100 and 1000', async () => {
         // Sends GET Request to /test endpoint
         let expectedResponse = [
             {
@@ -46,35 +47,33 @@ describe('Product Price Range Test', () => {
         expect(response.body.error).toBeFalsy();
         expect(response.body.message).toEqual(status.message[200]);
         expect(response.body.data).toEqual(expectedResponse);
-        done();
+        // done();
     });
 
-    it('If value of price from is a string', async (done) => {
+    it('If value of price from is a string', async () => {
         // Sends GET Request to /test endpoint
         const response = await request.get('/product/range?priceFrom=qwe&priceTo=100');
         expect(response.status).toBe(400);
         expect(response.body.error).toBeTruthy();
         expect(response.body.message).toEqual(status.message[400]);
         expect(response.body.data).toEqual(null);
-        done();
+        // done();
     });
 
-    it('If value of price from is empty', async (done) => {
+    it('If value of price from is empty', async () => {
         // Sends GET Request to /test endpoint
         const response = await request.get('/product/range?priceFrom=&priceTo=');
         expect(response.status).toBe(400);
         expect(response.body.error).toBeTruthy();
         expect(response.body.message).toEqual(status.message[400]);
         expect(response.body.data).toEqual(null);
-        done();
+        // done();
     });
 
-    it('Wrong URI', async (done) => {
+    it('Wrong URI', async () => {
         //- in case of wrong uri
         const response = await request.get('/product/range1');
         expect(response.status).toBe(404);
-        done();
+        // done();
     });
-
-
 });
