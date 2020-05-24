@@ -8,13 +8,7 @@ import mongoose from 'mongoose';
 
 describe('Product search test', () => {
 
-    describe('Sample Test', () => {
-        it('should test that true === true', () => {
-          expect(true).toBe(true);
-        });
-    });
     it('Show all product', async (done) => {
-        // Sends GET Request to /test endpoint
         let expectedResponse = [
             {
                 "_id": "5ec955f7d7089f5fa0028021",

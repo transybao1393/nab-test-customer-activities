@@ -10,14 +10,7 @@ import mongoose from 'mongoose';
 
 describe('Product Price Range Test', () => {
 
-    describe('Sample Test', () => {
-        it('should test that true === true', () => {
-          expect(true).toBe(true);
-        });
-    });
-
     it('If price between 1 and 100', async (done) => {
-        // Sends GET Request to /test endpoint
         const response = await request.get('/product/range?priceFrom=1&priceTo=100');
         expect(response.status).toBe(200);
         expect(response.body.error).toBeFalsy();
@@ -27,7 +20,6 @@ describe('Product Price Range Test', () => {
     });
 
     it('If price between 100 and 1000', async (done) => {
-        // Sends GET Request to /test endpoint
         let expectedResponse = [
             {
                 "_id": "5ec955f7d7089f5fa0028021",
@@ -59,7 +51,6 @@ describe('Product Price Range Test', () => {
     });
 
     it('If value of price from is a string', async (done) => {
-        // Sends GET Request to /test endpoint
         const response = await request.get('/product/range?priceFrom=qwe&priceTo=100');
         expect(response.status).toBe(400);
         expect(response.body.error).toBeTruthy();
@@ -69,7 +60,6 @@ describe('Product Price Range Test', () => {
     });
 
     it('If value of price from is empty', async (done) => {
-        // Sends GET Request to /test endpoint
         const response = await request.get('/product/range?priceFrom=&priceTo=');
         expect(response.status).toBe(400);
         expect(response.body.error).toBeTruthy();

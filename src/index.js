@@ -43,10 +43,4 @@ app.use(function (req, res, next) {
 
 //- product router
 app.use('/product', productRouter);
-
-//- open a server
-// app.listen(process.env.PORT || config.port, () => {
-//     console.log('Server start at port: ' + (process.env.PORT || config.port));
-// })
-
 export default app;
