@@ -1,7 +1,4 @@
 import {
-    pick
-} from 'lodash';
-import {
     ProductModel
 } from '../model/index';
 import status from 'statuses';

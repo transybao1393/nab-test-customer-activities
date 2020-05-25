@@ -53,6 +53,7 @@
     "faker": "^4.1.0",
     "install": "^0.13.0",
     "jest": "^26.0.1",
+    "mockdate": "^3.0.2",
     "nodemon": "^1.19.4",
     "npm": "^6.14.5",
     "regenerator-runtime": "^0.13.5",
