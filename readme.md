@@ -20,13 +20,13 @@ Please follow the instruction below
 You will need a Mac/Linux environment
 
 ### Installing
-Install docker on your machine or you can reference to the link to install Docker through Homebrew:
+1. Install docker on your machine or you can reference to the link to install Docker through [Homebrew](https://docs.brew.sh/Installation):
 ```
 https://codingbee.net/docker/install-docker-for-mac-using-homebrew
 ```
-Choose a folder to run the project
-Download file `start.sh`
-Run on your machine, if there is Mac, please follow:
+2. Choose a folder to run the project
+3. Download file `start.sh`
+4. Run on your machine, if there is Mac, please follow:
 ```
 sh start.sh
 ```

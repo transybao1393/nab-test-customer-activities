@@ -1,12 +1,10 @@
 import mongoose from 'mongoose';
-import moment from 'moment';
 
 let Schema = mongoose.Schema;
 let ProductColorSchema = new Schema({
 
     cColorName: {
         type: String,
-
     }
 
 }, {
