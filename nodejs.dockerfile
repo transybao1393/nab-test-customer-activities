@@ -18,4 +18,4 @@ ENV MONGODB_URI=mongodb://mongo/nab-test
 #Running the app
 EXPOSE 8001
 #CMD ["npm", "start"]
-CMD ["npm", "run", "dev"]
+# CMD ["npm", "run", "dev"]

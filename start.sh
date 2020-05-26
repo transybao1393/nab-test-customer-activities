@@ -1,7 +1,11 @@
 #!/bin/bash
 
-# Checking docker
-if [ -x "$(command -v docker)" ]; then
+# Checking docker & folder nab-test
+if [ -x "$(command -v docker)" && ! -d "/nab-test" ]
+then
+    git clone https://github.com/transybao1393/nab-test.git
+    cd nab-test
+    npm install
     # Creating network
     docker network create bao_network
     docker-compose up

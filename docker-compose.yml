@@ -8,8 +8,6 @@ services:
       - "27017:27017" 
     environment:
       MONGO_INITDB_DATABASE: nab-test
-      # MONGO_INITDB_ROOT_USERNAME: transybao
-      # MONGO_INITDB_ROOT_PASSWORD: transybao
     networks:
       - bao_network
   mongo-express:
@@ -18,9 +16,6 @@ services:
     restart: on-failure
     ports:
       - 8082:8081
-    environment:
-      - ME_CONFIG_MONGODB_ADMINUSERNAME=transybao
-      - ME_CONFIG_MONGODB_ADMINPASSWORD=transybao
     links:
       - mongo
     networks:
@@ -39,6 +34,7 @@ services:
       - 8001:8001
     links:
       - mongo
+    command: ["./wait-for-it.sh", "mongo:27017", "--", "npm", "run", "dev"]
     networks:
       - bao_network
   nginx:
