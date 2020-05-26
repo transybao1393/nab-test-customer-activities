@@ -13,6 +13,9 @@ WORKDIR /api
 
 COPY . /api
 
+COPY wait-for-it.sh /wait-for-it.sh
+RUN chmod +x /wait-for-it.sh
+
 ENV MONGODB_URI=mongodb://mongo/nab-test
 
 #Running the app
