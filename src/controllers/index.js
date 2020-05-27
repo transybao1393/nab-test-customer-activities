@@ -1,5 +1,5 @@
-import ProductController from './ProductController';
+import CustomerActivitiesController from './CustomerActivitiesController';
 
 export {
-    ProductController
+    CustomerActivitiesController
 };

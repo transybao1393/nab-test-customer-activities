@@ -1,61 +1,57 @@
 import amqp from 'amqplib/callback_api';
 import config from '../config.json';
+import {
+    CustomerActivitiesModel
+} from '../model/index';
 
-let publicMessage = (message) => {
-    amqp.connect(config.RABBITMQ_URI, function(error0, connection) {
-        if (error0) {
-            throw error0;
-        }
-        connection.createChannel(function(error1, channel) {
-            if (error1) {
-                throw error1;
-            }
+let publishMessage = (jsonData) => {
+    amqp.connect(config.RABBITMQ_URI, function(err, connection) {
+        if (err) throw err;
+        connection.createChannel(function(err1, channel) {
+            if (err1) throw err1;
 
             var queue = 'daily.customer.activities';
-            var msg = 'Hello World!';
 
             channel.assertQueue(queue, {
                 durable: false
             });
-            channel.sendToQueue(queue, Buffer.from(msg));
+            channel.sendToQueue(queue, Buffer.from(JSON.stringify(jsonData)));
 
-            console.log(" [x] Sent %s", msg);
+            console.log("[*] Sent %s", jsonData);
         });
-        setTimeout(function() {
-            connection.close();
-            process.exit(0);
-        }, 500);
     });
 };
 
 let consumeMessage = () => {
-    amqp.connect(config.RABBITMQ_URI, function(error0, connection) {
-    if (error0) {
-        throw error0;
-    }
-    connection.createChannel(function(error1, channel) {
-        if (error1) {
-            throw error1;
-        }
+    amqp.connect(config.RABBITMQ_URI, function(err, connection) {
+        if (err) throw err;
+        connection.createChannel(function(err1, channel) {
+            if (err1) throw err1;
+            var queue = 'daily.customer.activities';
+            channel.assertQueue(queue, {
+                durable: false
+            });
 
-        var queue = 'daily.customer.activities';
+            console.log("[*] Message Broker - Waiting for messages from queue %s. To exit press CTRL+C", queue);
 
-        channel.assertQueue(queue, {
-            durable: false
-        });
+            channel.consume(queue, async function(msg) {
+                let JSONDataReceived = JSON.parse(msg.content);
 
-        console.log(" [*] Waiting for messages in %s. To exit press CTRL+C", queue);
-
-        channel.consume(queue, function(msg) {
-            console.log(" [x] Received %s", msg.content.toString());
-        }, {
-            noAck: true
+                console.log("[*] Received json %s", JSONDataReceived);
+                try {
+                    await CustomerActivitiesModel.create(JSONDataReceived);
+                    console.log("[*] Logged customer activity %s", JSONDataReceived);
+                } catch(err) {
+                    console.log("[*] Insert failed with errors %s", err);
+                }
+            }, {
+                noAck: true
+            });
         });
     });
-});
 };
 
 export {
-    publicMessage,
+    publishMessage,
     consumeMessage
 };
