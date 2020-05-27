@@ -25,13 +25,14 @@ services:
     ports:
       - 90:90
     depends_on:
-      - services_api
+      - nodejs
     restart: on-failure
   rabbitmq:
     container_name: services_rabbitmq
     build:
       context: .
       dockerfile: rabbitmq.dockerfile
+    restart: on-failure
     ports:
       - "4369:4369"
       - "5671:5671"
